@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>WREN EVANS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+  <div class="hero">
+      <img src="wren.jpg" class="hero-img">
+  </div>
+ <header>
+  <div class="hero-title">
+    <h1>✨ Mãi fan Wren Evans ✨</h1>
+    <p>Nơi lưu giữ âm nhạc, cá tính và hành trình của Wren Evans</p>
+  </div>
+ </header>
+      <nav class="menu">
+        <a href="#about">Giới thiệu</a>
+        <a href="gallery.html">Thư viện</a>
+        <a href="works.html">Thành tích</a>
+        <a href="music.html">Bài hát</a>
+        <a href="message.html">Lời nhắn</a>
+      </nav>
+<section id="about">
+  <h2>🌟 Giới thiệu</h2>
+  <div class="intro-card">
+    <img src="idol.jpg" alt="idol" class="intro-img"/>  
+     <div class="intro-text">
+      <p><b>Tên thật:</b> Lê Phan </p>
+      <p><b>Sinh nhật:</b> 19 tháng 11, 2001 </p>
+      <p><b>Nghề nghiệp:</b> Ca sĩ, nhạc sĩ, nhà sản xuất âm nhạc </p>
+      <p><b>Dấu ấn cá nhân:</b> Khả năng sáng tác, sản xuất nhạc, chơi nhạc cụ và tư duy thời trang độc đáo </p>
+      <p><b>Fanpage:</b> <a href="https://www.facebook.com/wren.evans11/"
+   target="_blank"
+   class="fb-link">
+   https://www.facebook.com/wren.evans11/
+</a>
+
+    </div>
+  </div>
+</section>
+<footer>
+  Fan-made website | Made with 💖 by 2 fan
+</footer>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+</body>
+</html>
