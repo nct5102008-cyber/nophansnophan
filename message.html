@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Fan note</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+<div class="gallery">
+  <div class="message-wrapper">
+<div class="quote">
+"Chỉ biết cảm ơn âm nhạc đã đưa những dòng tâm sự của mình bay thật xa tới tai mọi người"
+</div>
+<div class="fupistar">
+      <img src="img16.jpg">
+</div>
+<div class="fan-note">
+    Một góc nhỏ cho những người luôn ở lại cùng âm nhạc.
+</div>
+</div>
+</div>
+  <a class="back" href="index1.html">← Quay về</a>
+
+</div>
+<footer>
+  Fan-made website | Made with 💖 by 2 fan
+</footer>
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+</script>
+</body>
+</html>

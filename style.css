@@ -1,0 +1,469 @@
+:root {
+  /* MÀU CHỦ ĐẠO */
+  --red-main: #df2531;
+  --red-soft: rgba(223, 37, 49, 0.45);
+  --red-glow: rgba(223, 37, 49, 0.8);
+
+  --bg-dark: #000000;
+  --bg-light: #ffffff;
+
+  /* TEXT */
+  --text-main: rgba(255,255,255,0.92);
+  --text-muted: rgba(255,255,255,0.6);
+}
+/* =====================
+   1. RESET + BASE
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap');
+body {
+  min-height: 100vh;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  background: radial-gradient(circle at center, #7a0000, #050000);
+  color: var(--text-main);
+  overflow-x: hidden;
+  cursor: url("cursor.png"), auto;
+}
+
+/* noise */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* =====================
+   2. HERO CINEMATIC
+===================== */
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  filter: contrast(1.05) saturate(1.15);
+  transform: scale(1.08);
+  animation: heroZoom 1.6s ease forwards;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 90px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.hero-sub {
+  margin-top: 12px;
+  color: #ff3b3b;
+  letter-spacing: 3px;
+}
+/* Zoom nhẹ khi vào */
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+/* =====================
+   3. REVEAL ON SCROLL
+===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   4. GALLERY
+===================== */
+.gallery {
+  max-width: 1300px;
+  margin: 120px auto;
+  padding: 0 24px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 35px;
+}
+
+.item {
+  aspect-ratio: 3 / 4;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+}
+
+.item img,
+.item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.item:hover img,
+.item:hover video {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.45), transparent);
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+.item:hover::after {
+  opacity: 1;
+}
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 20px;
+      filter: grayscale(20%);
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.03);
+    }
+
+/* =====================
+   5. QUOTE + FAN NOTE
+===================== */
+.quote {
+  text-align: center;
+  font-size: 28px;
+  font-style: italic;
+  color: #ff4d4d;
+  padding: 80px 20%;
+  text-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+}
+.fan-note {
+  text-align: center;
+  font-size: 18px;
+  color: rgba(255,255,255,0.5);
+  padding: 80px 0;
+}
+/* =====================
+   6. HEADER
+===================== */
+header {
+  background: radial-gradient(circle at center,
+    rgba(120,0,0,0.85) 0%,
+    rgba(40,0,0,0.9) 45%,
+    #05010f 75%);
+    width: 100vw;
+    height: 15vh;
+}
+
+.header-inner {
+  text-align: center;
+}
+
+    header h1 {
+      margin: 0;
+      font-size: 52px;
+      letter-spacing: 2px;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    header p {
+      margin-top: 10px;
+      opacity: 0.85;
+      font-size: 16px;
+    }
+
+/* =====================
+   7. NAV
+===================== */
+    nav {
+      background: rgba(10,0,0,0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid rgba(255,60,60,0.3);
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav a:hover { 
+       color: #ff4d4d;
+       text-shadow: 0 0 12px rgba(255,60,60,0.6);
+    }
+.nav-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+/* =====================
+   8. SECTION
+===================== */
+    section {
+      padding: 70px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section h2 {
+      color: #ff3c3c;
+      margin-bottom: 24px;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+      text-shadow: 0 0 18px rgba(255,60,60,0.4);
+    }
+/* =====================
+   9. INTRO
+===================== */
+.intro-card {
+  display: flex;
+  align-items: flex-start; /* chữ thẳng hàng trên */
+  gap: 30px;               /* khoảng cách ảnh – chữ */
+  max-width: 900px;
+}
+
+.intro-img {
+  width: 290px;
+  border-radius: 18px;
+  box-shadow: 0 0 20px var(--red-soft),
+              0 0 40px var(--red-glow);
+}
+
+.intro-text {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.6;
+}
+/* =====================
+   10. FOOTER
+===================== */
+    footer {
+      background: rgba(5,5,20,0.95);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      opacity: 0.75;
+      border-top: 1px solid rgba(120,150,255,0.35);
+    }
+
+/* =====================
+   11. ALBUM
+===================== */
+.album img {
+  transition: box-shadow 0.3s, transform 0.3s;
+  width: 380px;
+  border-radius: 22px;
+}
+
+/* CHỈ ẢNH ĐƯỢC GLOW */
+.album.playing img {
+  box-shadow:
+    0 0 20px var(--red-soft),
+    0 0 40px var(--red-glow);
+  animation: redPulse 1.6s infinite;
+  transform: scale(1.02);
+}
+
+@keyframes redPulse {
+  0% {
+    box-shadow:
+      0 0 15px rgba(223,37,49,0.4),
+      0 0 30px rgba(223,37,49,0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(223,37,49,0.9),
+      0 0 70px rgba(223,37,49,0.7);
+  }
+  100% {
+    box-shadow:
+      0 0 15px rgba(223,37,49,0.4),
+      0 0 30px rgba(223,37,49,0.3);
+  }
+}
+
+.glow-animate {
+  animation: redPulse 1.6s infinite;
+}
+
+/* =====================
+   12. BACK
+===================== */
+.back {
+  display: inline-block;
+  margin-top: 40px;
+  color: red;
+  text-decoration: none;
+}
+/* =====================
+   13. WORKS
+===================== */
+.works-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  padding: 0 10%;
+}
+.work-item {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.work-item:hover {
+  transform: scale(1.03);
+}
+/* =====================
+   14. IMG LỜI NHẮN
+===================== */
+.fupistar {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+}
+
+/* =====================
+   15. LINK
+===================== */
+.fb-link {
+  display: inline-block;
+  color: #df2531;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
+  text-shadow: 0 0 6px rgba(223,37,49,0.6);
+}
+
+.fb-link:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.page {
+  padding: 120px 10%;
+  animation: fadeUp 1s ease;
+}
+/* =====================
+   15. TT
+===================== */
+.alt-layout {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.alt-row {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 24px 32px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+
+.alt-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.alt-media img {
+  width: 340px;
+  border-radius: 20px;
+}
+
+.alt-text h3 {
+  font-size: 24px;
+  max-width: 500px;
+  color: white;
+  line-height: 1.7;
+  color: #ff4d4d;
+  text-shadow: 0 0 18px rgba(255, 0, 0, 0.4);
+}
+.alt-text p {
+  font-size: 20px;
+  line-height: 1.8;
+}
+/* =====================
+   16. MUSIC
+===================== */
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 42px;
+  padding: 60px 80px;
+}
+
+.music-card img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.25);
+}
+
+.music-card h3 {
+  margin-top: 12px;
+  font-size: 24px;
+  text-align: center;
+  color: #ff4d4d;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+.message-wrapper {
+  display: flex;
+  flex-direction: column; /* 👈 xếp dọc */
+  align-items: center;    /* căn giữa ngang */
+  gap: 40px;              /* khoảng cách giữa các khối */
+}
